@@ -1,19 +1,13 @@
-prompt = "Enter todo: "
 todos = []
 while True:
-    todo = input(prompt)
-    todos.append(todo)
-    print(todos)
-
-#password checker
-password = input("Enter password: ")
-while password != "pass123":
-    password = input("Enter password: ")
-
-print("Password correct!")
-
-#series of numbers
-x = 1
-while x <= 6:
-    print(x)
-    x = x + 1
+    user_action = input("Type add, show or exit: ")
+    user_action = user_action.strip()
+    match user_action:
+        case 'add':
+            todo = input("Enter a todo: ")
+            todos.append(todo)
+        case 'show':
+            for item in todos:
+                print(item)
+        case 'exit':
+            break

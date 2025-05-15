@@ -1,8 +1,5 @@
-#name = input("Enter your name: ")
+filenames = ["1.Raw Data.txt", "2.Reports.txt", "3.Presentations.txt"]
 
-#while True:
-#    print(name.capitalize())
-
-while True:
-    name = input("Enter your name: ")
-    print(name.capitalize())
+for filename in filenames:
+    filename = filename.replace('.', "-", 1)
+    print(filename)

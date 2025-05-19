@@ -4,18 +4,28 @@ while True:
     match user_action:
         case 'add':
             todo = input("Enter a todo: ") + "\n"
-            file = open('todos.txt', 'r')
-            todos = file.readlines()
-            file.close()
+            # file = open('todos.txt', 'r')
+            # todos = file.readlines()
+            # file.close()
+
+            with open('todos.txt','r') as file:
+                todos = file.readlines()
+
             todos.append(todo)
 
-            file = open('todos.txt', 'w')
-            file.writelines(todos)
-            file.close()
+            # file = open('todos.txt', 'w')
+            # file.writelines(todos)
+            # file.close()
+
+            with open('todos.txt', 'w') as file:
+                file.writelines(todos)
         case 'show':
-            file = open('todos.txt', 'r')
-            todos = file.readlines()
-            file.close()
+            # file = open('todos.txt', 'r')
+            # todos = file.readlines()
+            # file.close()
+
+            with open('todos.txt', 'r') as file:
+                todos = file.readlines()
 
             # new_todos = []
             # for item in todos:
@@ -29,9 +39,11 @@ while True:
                 row = f"{index + 1}-{item}"
                 print(row)
         case 'edit':
-            file = open('todos.txt', 'r')
-            todos = file.readlines()
-            file.close()
+            # file = open('todos.txt', 'r')
+            # todos = file.readlines()
+            # file.close()
+            with open('todos.txt', 'r') as file:
+                todos = file.readlines()
 
             number = int(input("Number of the todo to edit: "))
             number = number - 1

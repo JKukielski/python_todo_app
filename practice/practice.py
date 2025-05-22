@@ -28,9 +28,29 @@
 #     file.write("Hello")
 #     file.close()
 
-files = ['a.txt', 'b.txt', 'c.txt']
-for file in files:
-    file = open(file, 'r')
-    content = file.read()
-    print(content)
-    file.close()
+# files = ['a.txt', 'b.txt', 'c.txt']
+# for file in files:
+#     file = open(file, 'r')
+#     content = file.read()
+#     print(content)
+#     file.close()
+
+# try:
+#     total_value = float(input("Enter total value: "))
+#     value = float(input("Enter value: "))
+#     print(f"That is {(total_value / value) * 100}%")
+# except ValueError:
+#     print("You need to enter a number. Run the program again")
+
+def get_average():
+    with open('practice/data.txt', 'r') as file:
+        data = file.readlines()
+    values = data[1:]
+    values = [float(i) for i in values]
+
+    average_local = sum(values) / len(values)
+    return average_local
+
+
+average = get_average()
+print(average)

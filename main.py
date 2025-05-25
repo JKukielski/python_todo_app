@@ -1,10 +1,10 @@
-def get_todos(filepath):
+def get_todos(filepath='todos.txt'):
     with open(filepath, 'r') as file_local:
         todos_local = file_local.readlines()
     return todos_local
 
 
-def write_todos(filepath, todos_arg):
+def write_todos(todos_arg, filepath='todos.txt'):
     with open(filepath, 'w') as file:
         file.writelines(todos_arg)
 
@@ -16,7 +16,7 @@ while True:
     if user_action.startswith('add'):
         todo = user_action[4:]
 
-        todos = get_todos('todos.txt')
+        todos = get_todos()
 
         todos.append(todo + '\n')
 
@@ -24,14 +24,14 @@ while True:
         # file.writelines(todos)
         # file.close()
 
-        write_todos('todos.txt', todos)
+        write_todos(todos)
 
     elif user_action.startswith('show'):
         # file = open('todos.txt', 'r')
         # todos = file.readlines()
         # file.close()
 
-        todos = get_todos('todos.txt')
+        todos = get_todos()
 
         # new_todos = []
         # for item in todos:
@@ -49,12 +49,12 @@ while True:
             number = int(user_action[5:])
             number = number - 1
 
-            todos = get_todos('todos.txt')
+            todos = get_todos()
 
             new_todo = input("Enter new todo: ")
             todos[number] = new_todo + "\n"
 
-            write_todos('todos.txt', todos)
+            write_todos(todos)
         except ValueError:
             print("Your command is not valid.")
             continue
@@ -63,12 +63,12 @@ while True:
         try:
             number = int(user_action[9:])
 
-            todos = get_todos('todos.txt')
+            todos = get_todos()
 
             todo_to_remove = todos[number - 1].strip('\n')
             todos.pop(number - 1)
 
-            write_todos('todos.txt', todos)
+            write_todos(todos)
 
             message = f"Todo {todo_to_remove} was removed from the list"
             print(message)

@@ -1,4 +1,5 @@
-from functions import get_todos, write_todos
+# from functions import get_todos, write_todos
+import functions
 
 while True:
     user_action = input("Type add, show, edit, complete or exit: ")
@@ -7,7 +8,7 @@ while True:
     if user_action.startswith('add'):
         todo = user_action[4:]
 
-        todos = get_todos()
+        todos = functions.get_todos()
 
         todos.append(todo + '\n')
 
@@ -15,14 +16,14 @@ while True:
         # file.writelines(todos)
         # file.close()
 
-        write_todos(todos)
+        functions.write_todos(todos)
 
     elif user_action.startswith('show'):
         # file = open('todos.txt', 'r')
         # todos = file.readlines()
         # file.close()
 
-        todos = get_todos()
+        todos = functions.get_todos()
 
         # new_todos = []
         # for item in todos:
@@ -40,12 +41,12 @@ while True:
             number = int(user_action[5:])
             number = number - 1
 
-            todos = get_todos()
+            todos = functions.get_todos()
 
             new_todo = input("Enter new todo: ")
             todos[number] = new_todo + "\n"
 
-            write_todos(todos)
+            functions.write_todos(todos)
         except ValueError:
             print("Your command is not valid.")
             continue
@@ -54,12 +55,12 @@ while True:
         try:
             number = int(user_action[9:])
 
-            todos = get_todos()
+            todos = functions.get_todos()
 
             todo_to_remove = todos[number - 1].strip('\n')
             todos.pop(number - 1)
 
-            write_todos(todos)
+            functions.write_todos(todos)
 
             message = f"Todo {todo_to_remove} was removed from the list"
             print(message)

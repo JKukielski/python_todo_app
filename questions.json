@@ -1,0 +1,10 @@
+[{
+  "question": "What are dolphins?",
+  "answers": ["Amphibians", "Fish", "Mammals", "Birds"],
+  "correct_answer": 3
+},
+{
+  "question": "What occupies most of the Earth's surface??",
+  "answers": ["Land", "Water"],
+  "correct_answer": 2
+}]

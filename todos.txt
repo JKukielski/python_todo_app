@@ -1,2 +1,7 @@
-wash the car
+Code in python
 clean the wardrobe
+Add first todo
+Clean the house
+Go to the gym
+Adding test
+Make dinner 

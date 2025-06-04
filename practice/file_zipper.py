@@ -10,6 +10,7 @@ input2 = sg.Input()
 choose_button2 = sg.FolderBrowse("Choose", key="folder")
 
 compress_button = sg.Button("Compress")
+exit_button = sg.Button("Exit")
 output_label = sg.Text(key="output")
 
 window = sg.Window("File Compressor",
@@ -19,9 +20,10 @@ window = sg.Window("File Compressor",
 
 while True:
     event, values = window.read()
-    print(event, values)
-    filepaths = values["files"].split(";")
-    folder = values["folder"]
-    make_archive(filepaths, folder)
-    window["output"].update(value="Compression completed")
+    match event:
+        case "Compress":
+            filepaths = values["files"].split(";")
+            folder = values["folder"]
+            make_archive(filepaths, folder)
+            window["output"].update(value="Compression completed")
 window.close()
